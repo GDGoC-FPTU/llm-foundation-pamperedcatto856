@@ -20,7 +20,7 @@ TESTS_DIR = Path(__file__).parent
 LAB_DIR = TESTS_DIR.parent
 
 # Resolve module paths
-SOLUTION_PATH = LAB_DIR / "solution-code" / "solution.py"
+SOLUTION_PATH = LAB_DIR / "solution" / "solution.py"
 TEMPLATE_PATH = LAB_DIR / "starter-code" / "template.py"
 
 def _load_module(path: Path, unique_name: str):

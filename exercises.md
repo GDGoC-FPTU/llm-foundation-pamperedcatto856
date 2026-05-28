@@ -31,11 +31,11 @@ Gọi `call_openai` với các giá trị temperature 0.0, 0.5, 1.0 và 1.5 sử
 
 **Bạn nhận thấy quy luật gì qua bốn phản hồi?** (2–3 câu)
 
-> _Câu trả lời của bạn_
+> Ở 2 mốc dưới 1, phản hồi mang tính xác định (deterministic), câu trả lời có cấu trúc chặt chẽ và tập trung vào các điều chính xác cao. Còn ở 2 mốc trên 1, phản hồi trở nên sáng tạo và đa dạng hơn nhưng có dấu hiệu mất kiểm soát, có thể đề cập đến những điều bay bổng khác.
 
 **Bạn sẽ đặt temperature bao nhiêu cho chatbot hỗ trợ khách hàng, và tại sao?**
 
-> _Câu trả lời của bạn_
+> Em sẽ đặt temperature trong khoảng 0.0 đến 0.5, bởi vì trong hỗ trợ khách hàng, tính chính xác và nhất quán là quan trọng nhất; chatbot cần cung cấp thông tin đáng tin cậy dựa trên dữ liệu có sẵn.
 
 ---
 
@@ -61,7 +61,7 @@ Xem xét kịch bản: 10.000 người dùng hoạt động mỗi ngày, mỗi n
 
 ## Danh Sách Kiểm Tra Nộp Bài
 
-- [ ] Tất cả tests pass: `pytest tests/ -v`
+- [x] Tất cả tests pass: `pytest tests/ -v`
 - [x] `call_openai` đã triển khai và kiểm thử
 - [x] `call_openai_mini` đã triển khai và kiểm thử
 - [x] `compare_models` đã triển khai và kiểm thử
@@ -70,4 +70,4 @@ Xem xét kịch bản: 10.000 người dùng hoạt động mỗi ngày, mỗi n
 - [x] `batch_compare` đã triển khai và kiểm thử
 - [x] `format_comparison_table` đã triển khai và kiểm thử
 - [x] `exercises.md` đã điền đầy đủ
-- [ ] Sao chép bài làm vào folder `solution` và đặt tên theo quy định
+- [x] Sao chép bài làm vào folder `solution` và đặt tên theo quy định

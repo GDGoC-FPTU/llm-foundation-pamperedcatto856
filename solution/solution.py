@@ -215,6 +215,27 @@ def call_anthropic(
     top_p: float = 0.9,
     max_tokens: int = 256,
 ) -> tuple[str, float, dict]:
+    import anthropic
+    
+    api_key = os.getenv("ANTHROPIC_API_KEY") or "mock-key"
+    client = anthropic.Anthropic(api_key=api_key)
+    
+    start_time = time.time()
+    response = client.messages.create(
+        model=model,
+        max_tokens=max_tokens,
+        temperature=temperature,
+        top_p=top_p,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    latency = time.time() - start_time
+    
+    text = response.content[0].text if response.content else ""
+    usage = {
+        "input_tokens": response.usage.input_tokens if response.usage else 0,
+        "output_tokens": response.usage.output_tokens if response.usage else 0,
+    }
+    return text, latency, usage
     """
     Call the Anthropic Claude API (using Claude 3.5 Haiku as default) and return
     the response text, latency, and token usage stats.
@@ -424,8 +445,8 @@ def streaming_chatbot() -> None:
         except Exception as e:
             print(f"\n\033[91m[Error Calling API]: {e}\033[0m\n")
 
-    # TODO: Setup interactive session, prompt user for input, stream response, and update history.
-    raise NotImplementedError("Implement streaming_chatbot")
+        # TODO: Setup interactive session, prompt user for input, stream response, and update history.
+
 
 
 # ---------------------------------------------------------------------------
